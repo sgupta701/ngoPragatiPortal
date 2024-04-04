@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up Step 1</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #d1a981;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: rgb(177, 59, 59);
+            color: #fff; 
+            padding: 10px 0; 
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 20px auto 20px; 
+            padding: 20px;
+            border-radius: 5px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            background-color: rgb(177, 59, 59); 
+            color: #fff; 
+            text-align: center;
+            margin-top: 0;
+            padding: 10px 0;
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+        }
+
+        h1::after {
+            content: "";
+            display: block;
+            width: 50px;
+            height: 2px;
+            background-color: rgb(177, 59, 59); 
+            margin-top: 10px;
+            margin-left: auto; 
+            margin-right: auto;
+        }
+
+        .ngoportal {
+            text-align: left; 
+            padding-left: 20px; 
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        input[type="text"]:focus,
+        input[type="email"]:focus {
+            outline: none;
+            border-color: #6a9fe5;
+        }
+
+        input[type="submit"] {
+            background-color: rgb(177, 59, 59); 
+            color: #fff;
+            cursor: pointer;
+            border: none;
+            padding: 10px 0;
+            border-radius: 3px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #8B0000; 
+        }
+
+        .captcha {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px; 
+        }
+
+        .captcha img {
+            margin-right: 10px;
+        }
+
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1 class="ngoportal">NGO Pragati</h1>
+    </header>
+
+    <div class="container">
+        <h1>Sign Up</h1>
+        <p><b><u>Step 1 out of 3:-</u></b></p>
+        <form id="signup-form">
+            <label for="ngo-name">NGO Name:</label>
+            <input type="text" id="ngo-name" name="ngoName" required>
+            <label for="contact-phone">Contact Person Phone Number:</label>
+            <input type="text" id="contact-phone" name="contactPhone" required>
+            <div id="phone-error" class="error"></div>
+            <label for="contact-email">Contact Person Email:</label>
+            <input type="email" id="contact-email" name="contactEmail" required>
+            <div id="email-error" class="error"></div>
+            <div class="captcha">
+                <img id="captcha-img" src="" alt="Captcha Image">
+                <input type="text" id="captcha-input" name="captcha" required>
+                <button type="button" onclick="refreshCaptcha()" style="background-color: #6a9fe5; color: #fff; border: none; padding: 8px 12px; border-radius: 3px; cursor: pointer;">Refresh Captcha</button>
+            </div>
+            <div id="captcha-error" class="error"></div>
+            <input type="submit" value="Submit">
+        </form>
+        <p>Note:</p>
+        <ol>
+            <li>Enter NGO name exactly the same as that given on the PAN Card.</li>
+            <li>The phone number and email id provided should be working.</li>
+            <li>After completing this step successfully, you'll receive a link on your email or phone number via sms. That link will direct you to Step 2.</li>
+        </ol>
+    </div>
+
+    <script>
+        function refreshCaptcha() {
+            var captchaText = "";
+            var possibleChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+            for (var i = 0; i < 6; i++) {
+                captchaText += possibleChars.charAt(Math.floor(Math.random() * possibleChars.length));
+            }
+            var captchaImg = document.getElementById('captcha-img');
+            captchaImg.src = "https://dummyimage.com/120x40/000/fff&text=" + captchaText; 
+            captchaImg.alt = captchaText;
+        }
+        window.addEventListener('load', refreshCaptcha);
+        document.getElementById('contact-phone').addEventListener('input', function(event) {
+            var phoneInput = event.target.value;
+            var phoneError = document.getElementById('phone-error');
+            if (!/^\d{0,10}$/.test(phoneInput)) {
+                phoneError.textContent = "Invalid Phone Number";
+            } else {
+                phoneError.textContent = "";
+            }
+        });
+        document.getElementById('signup-form').addEventListener('submit', function(event) {
+            var phoneInput = document.getElementById('contact-phone').value;
+            var emailInput = document.getElementById('contact-email').value;
+            var captchaInput = document.getElementById('captcha-input').value;
+            var phoneError = document.getElementById('phone-error');
+            var emailError = document.getElementById('email-error');
+            var captchaError = document.getElementById('captcha-error');
+            if (!/^\d{10}$/.test(phoneInput)) {
+                phoneError.textContent = "Invalid Phone Number";
+                event.preventDefault();
+                return; 
+            } else {
+                phoneError.textContent = "";
+            }
+            if (!/\S+@\S+\.\S+/.test(emailInput)) {
+                emailError.textContent = "Invalid Email Address";
+                event.preventDefault();
+                return; 
+            } else {
+                emailError.textContent = "";
+            }
+            var storedCaptcha = document.getElementById('captcha-img').alt;
+            if (captchaInput.trim().toUpperCase() !== storedCaptcha.toUpperCase()) {
+                captchaError.textContent = "Incorrect Captcha";
+                event.preventDefault();
+                return; 
+            } else {
+                captchaError.textContent = ""; 
+            }
+            showOTPDialogue(event);
+        });
+        function showOTPDialogue(event) {
+            alert("Please click on the link sent to your provided phone number or email address for verification. It will direct you to Step 2 out of 3 for sign up.");
+         }
+    </script>
+</body>
+
+</html>

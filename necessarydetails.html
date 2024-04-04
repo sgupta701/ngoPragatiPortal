@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NGO Pragati</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #d1a981; 
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            background-color: rgb(177, 59, 59); 
+            color: #fff; 
+            text-align: left; 
+            margin-top: 0;
+            padding: 10px 0; 
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+        }
+        #title-bar {
+            background-color: rgb(177, 59, 59);
+            color: #ac7d7d;
+            display: flex;
+            justify-content: space-between; 
+            align-items: center;
+            padding: 10px;
+        }
+
+        #title-bar a {
+            color: #fdfcfc; 
+            text-decoration: none; 
+        }
+
+        #title-bar a:hover {
+            text-decoration: underline; 
+        }
+
+        #logout-btn {
+            background-color: #ac7d7d; 
+            color: #fff; 
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #e8cda9;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1 class="ngoportal">NGO Pragati</h1>
+        <button id="logout-btn">Logout</button>
+    </header>
+    <div id="title-bar">
+        <a href="#ngo-details">NGO details</a>
+        <a href="#registration-details">Registration Details</a>
+        <a href="#member-details">Member Details</a>
+        <a href="#sources-of-funds">Sources of Fund</a>
+        <a href="#key-contact-details">Key Contact Details</a>
+        <a href="#working-areas">Working Areas</a>
+        <a href="#generate-unique-id">Generate Unique ID</a>
+    </div>
+
+    <div id="ngo-details" class="container">
+        <h2>NGO Details</h2>
+        <button onclick="showNgoForm()">Fill the Form</button>
+    
+        
+        <div id="ngo-form" class="ngo-form hidden">
+            <form>
+                <div class="form-row">
+                    <div class="form-column">
+                        <p> <i>Fields marked wiht '*' are compulsary.</i> </p>
+                        <label for="pan-number">Organisation PAN Number:*</label>
+                        <input type="text" id="pan-number" name="pan-number" style="width: 100%;"><br><br>
+                        <label for="pan-file">Upload PAN File:*</label>
+                        <input type="file" id="pan-file" name="pan-file" style="width: 100%;"><br><br>
+                        <label for="ngo-name">NGO Name:*</label>
+                        <input type="text" id="ngo-name" name="ngo-name" style="width: 100%;"><br><br>
+                        <label for="ngo-address">NGO Address:*</label>
+                        <input type="text" id="ngo-address" name="ngo-address" style="width: 100%;"><br><br>
+                        <label for="state">Select State:*</label>
+                        <select id="state" name="state" style="width: 100%;">
+                            <option value="">Select State</option>
+                            <option value="Andhra Pradesh">Andhra Pradesh</option>
+                            <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                            <option value="Assam">Assam</option>
+                            <option value="Bihar">Bihar</option>
+                            <option value="Chhattisgarh">Chhattisgarh</option>
+                            <option value="Goa">Goa</option>
+                            <option value="Gujarat">Gujarat</option>
+                            <option value="Haryana">Haryana</option>
+                            <option value="Himachal Pradesh">Himachal Pradesh</option>
+                            <option value="Jharkhand">Jharkhand</option>
+                            <option value="Karnataka">Karnataka</option>
+                            <option value="Kerala">Kerala</option>
+                            <option value="Madhya Pradesh">Madhya Pradesh</option>
+                            <option value="Maharashtra">Maharashtra</option>
+                            <option value="Manipur">Manipur</option>
+                            <option value="Meghalaya">Meghalaya</option>
+                            <option value="Mizoram">Mizoram</option>
+                            <option value="Nagaland">Nagaland</option>
+                            <option value="Odisha">Odisha</option>
+                            <option value="Punjab">Punjab</option>
+                            <option value="Rajasthan">Rajasthan</option>
+                            <option value="Sikkim">Sikkim</option>
+                            <option value="Tamil Nadu">Tamil Nadu</option>
+                            <option value="Telangana">Telangana</option>
+                            <option value="Tripura">Tripura</option>
+                            <option value="Uttar Pradesh">Uttar Pradesh</option>
+                            <option value="Uttarakhand">Uttarakhand</option>
+                            <option value="West Bengal">West Bengal</option>
+                            <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
+                            <option value="Chandigarh">Chandigarh</option>
+                            <option value="Dadra and Nagar Haveli">Dadra and Nagar Haveli</option>
+                            <option value="Daman and Diu">Daman and Diu</option>
+                            <option value="Lakshadweep">Lakshadweep</option>
+                            <option value="Delhi">Delhi</option>
+                            <option value="Puducherry">Puducherry</option>
+                        </select><br><br>
+                    </div>
+                    <div class="form-column">
+                        <label for="city">Enter City:*</label>
+                        <input type="text" id="city" name="city" style="width: 100%;"><br><br>
+                        <label for="pin-code">Enter Pin Code:*</label>
+                        <input type="text" id="pin-code" name="pin-code" style="width: 100%;"><br><br>
+                        <label for="ngo-url">Enter NGO URL (if any):</label>
+                        <input type="text" id="ngo-url" name="ngo-url" style="width: 100%;"><br><br>
+                        <label for="ngo-email">NGO Email:</label>
+                        <input type="email" id="ngo-email" name="ngo-email" style="width: 100%;"><br><br>
+                        <label for="registration-number">Registration Number:*</label>
+                        <input type="text" id="registration-number" name="registration-number" style="width: 100%;"><br><br>
+                        <label for="registration-certificate">Upload Registration Certificate:*</label>
+                        <input type="file" id="registration-certificate" name="registration-certificate" style="width: 100%;"><br><br>
+                        <label for="registration-date">Date of Registration:</label>
+                        <input type="date" id="registration-date" name="registration-date" style="width: 100%;"><br><br>
+                    </div>
+                </div>
+                <button type="button">Save</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="registration-details" class="container">
+        <h2>Registration Details</h2>
+        
+    </div>
+
+    <div id="member-details" class="container">
+        <h2>Member Details</h2>
+        <p>Please note that it is mandatory to provide the information of the following office bearers:</p>
+        <ul>
+            <li>Chairman/President</li>
+            <li>In charge of operations</li>
+            <li>Treasurer</li>
+        </ul>
+    
+        <div id="add-member-1" class="add-member">
+            <h3>Add President/Chairman</h3>
+            <button onclick="showMemberForm(1)">Add President/Chairman -></button>
+        </div>
+    
+        
+        <div id="member-forms">
+           
+            <div id="member-1-form" class="member-form hidden">
+                <h3>President/Chairman Details</h3>
+               
+                <form>
+                    <label for="member1-name">Name:</label>
+                    <input type="text" id="member1-name" name="member1-name"><br><br>
+                    
+                    <label for="member1-phone">Phone Number:</label>
+                    <input type="text" id="member1-phone" name="member1-phone"><br><br>
+                    <label for="member1-aadhar">Aadhar Number:</label>
+                    <input type="text" id="member1-aadhar" name="member1-aadhar"><br><br>
+                    <label for="member1-dob">Date of Birth:</label>
+                    <input type="date" id="member1-dob" name="member1-dob"><br><br>
+                    <button type="button" onclick="addMember(1)">Submit</button>
+                </form>
+                <p id="member1-status"></p>
+            </div>
+        </div>
+    
+       
+        <div id="add-more-members" class="add-member hidden">
+            <button onclick="showMemberForm(2)">Add Secretary -></button>
+            <button onclick="showMemberForm(3)">Add Treasurer -></button>
+        </div>
+    </div>
+
+    <div id="sources-of-funds" class="container">
+        <h2>Sources of Fund</h2>
+       
+    </div>
+
+    <div id="key-contact-details" class="container">
+        <h2>Key Contact Details</h2>
+        <button onclick="showKeyContactForm()">Fill the Key Contact Details</button>
+    
+    
+        <div id="key-contact-form" class="key-contact-form hidden">
+            <h3>Key Contact Information</h3>
+            <form>
+                <label for="first-name">First Name:</label>
+                <input type="text" id="first-name" name="first-name" style="width: 100%;"><br><br>
+                <label for="last-name">Last Name:</label>
+                <input type="text" id="last-name" name="last-name" style="width: 100%;"><br><br>
+                <label for="mobile">Mobile:</label>
+                <input type="text" id="mobile" name="mobile" style="width: 100%;"><br><br>
+                <label for="alternative-mobile">Alternative Mobile:</label>
+                <input type="text" id="alternative-mobile" name="alternative-mobile" style="width: 100%;"><br><br>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" style="width: 100%;"><br><br>
+                <label for="designation">Designation:</label>
+                <input type="text" id="designation" name="designation" style="width: 100%;"><br><br>
+                <label for="gender">Gender:</label>
+                <select id="gender" name="gender" style="width: 100%;">
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="other">Other</option>
+                </select><br><br>
+                <label for="dob">Date of Birth:</label>
+                <input type="date" id="dob" name="dob" style="width: 100%;"><br><br>
+                <label for="full-address">Full Address:</label>
+                <textarea id="full-address" name="full-address" style="width: 100%;"></textarea><br><br>
+                <button type="button">Save</button>
+            </form>
+        </div>
+    </div>
+    <div id="working-areas" class="container">
+        <h2>Working Areas</h2>
+    </div>
+
+    <div id="generate-unique-id" class="container">
+        <h2>Generate Unique ID</h2>
+    </div>
+
+    <script>
+        function showKeyContactForm() {
+        document.getElementById('key-contact-form').classList.remove('hidden');
+    }
+        function showNgoForm() {
+        document.getElementById('ngo-form').classList.remove('hidden');
+    }
+        function showMemberForm(memberNumber) {
+        document.getElementById('member-' + memberNumber + '-form').classList.remove('hidden');
+        document.getElementById('add-member-' + memberNumber).classList.add('hidden');
+    }
+    function addMember(memberNumber) {
+        document.getElementById('member' + memberNumber + '-status').innerText = 'Added the member (President) successfully';
+        if (memberNumber < 3) {
+            document.getElementById('add-more-members').classList.remove('hidden');
+        }
+    }
+        document.querySelectorAll('#title-bar a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                document.querySelectorAll('.container').forEach(container => {
+                    if (container.id === targetId) {
+                        container.classList.remove('hidden');
+                    } else {
+                        container.classList.add('hidden');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

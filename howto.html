@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NGO Sign Up / Sign In</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f5d5b1; 
+    }
+    
+    header {
+        background-color: rgb(177, 59, 59);
+        color: #fff;
+        padding: 10px 20px;
+    }
+    
+    .container {
+        max-width: 1400px;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: #e8cda9;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+    
+    .content {
+        flex: 1;
+        margin-right: 20px;
+        padding-right: 20px;
+    }
+    
+    h1 {
+        color: rgb(177, 59, 59);
+        margin-bottom: 20px;
+        font-family: 'Great Vibes', cursive; 
+        position: relative;
+    }
+
+    h1::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -20px;
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(circle, #ffabab, transparent);
+        border-radius: 50%;
+        z-index: -1;
+    }
+
+    hr {
+        border: none;
+        border-top: 3px solid rgb(177, 59, 59); 
+        margin-bottom: 20px;
+        width: 180%; 
+    }
+    
+    ol {
+        margin-bottom: 20px;
+        padding-left: 20px;
+    }
+    
+    ol li {
+        margin-bottom: 15px;
+        line-height: 1.6;
+    }
+    
+    ol ol {
+        margin-top: 10px;
+    }
+    
+    ol ol li {
+        margin-bottom: 10px;
+    }
+    
+    ol ol li:before {
+        content: "▹";
+        color: rgb(177, 59, 59);
+        margin-right: 5px;
+    }
+    
+    .signup-box {
+        flex: 0 0 200px;
+        background-color: rgb(177, 59, 59);
+        color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        margin-top: 20px;
+    }
+    
+    .signup-link {
+        color: #fff;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    .signin-button {
+        background-color: rgb(177, 59, 59);
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        margin-top: 20px;
+    }
+</style>
+</head>
+<body>
+
+<header>
+    <h2>NGO Pragati</h2>
+</header>
+
+<div class="container">
+    <div class="content">
+        <h1>NGO Sign Up / Sign In</h1>
+        <hr>
+        <ol>
+            <li><b>For Already Signed up NGOs:</b></li>
+            <hr>
+                <ol>
+                    <li>Click on the "Sign In" Link</li>
+                    <li>Provide the three fields: Pan number, Mobile, or Email in userid field</li>
+                    <li>Provide your password</li>
+                    <li>Access your registered details</li>
+                    <li>In case you forget the password, there is an option to Sign In using OTP, where OTP is sent to the registered mobile number (alternated mobile number).</li>
+                </ol>
+            </li>
+        </ol>
+        <a href="index.html"><button class="signin-button">Sign In</button></a>
+    </div>
+    <div class="content" style="margin-bottom: 40px;"> 
+        <ol start="2">
+            <br><br><br><br><br>
+            <li><b>For New NGOs for Sign Up:</b>
+                <h4> STEP 1:</h4>
+                <ol>
+                    <li>Provide your NGO Name</li>
+                    <li>Provide the contact person's Email and Mobile Number.</li>
+                    <li>Enter the captcha displayed at the website</li>
+                    <li>To proceed to step 2, check the link sent on your mail or phone number. It will direct you to Step 2.</li>
+                </ol>
+                <h4> STEP 2:</H4>
+                <OL>
+                    <li>Enter NGO Pan Number. It will be checked and only the valid PAN Number will be accepted.</li>
+                </OL>
+                <H4> STEP 3:</H4>
+                <OL>
+                    <li>This step will allow you to create a password</li>
+                    <li>Sign In to the portal with your credentials generated at the above steps.</li>
+                </ol>
+            </li>
+        </ol>
+    </div>
+    <div class="signup-box">
+        <a href="step1.html" class="signup-link">Proceed to SignUp ->></a>
+        </div>
+</div>
+
+</body>
+</html>

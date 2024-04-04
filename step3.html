@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign up Step 3</title>
+    <style>
+        
+        body {
+            font-family: Arial, sans-serif;
+            background-color:#d1a981;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+        h2 {
+            background-color: rgb(177, 59, 59); 
+            color: #fff;
+            text-align: center;
+            margin-top: 0;
+            padding: 10px 0; 
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+        }
+        header {
+            background-color: rgb(177, 59, 59);
+            color: white;
+            padding: 10px;
+            text-align: left;
+            width: 100%;
+        }
+
+        .container {
+            margin-top: 100px; 
+            max-width: 2000px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 40px rgba(0, 0, 0, 0.2);
+            margin: 0px;
+            box-sizing: border-box;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        .password-container {
+            position: relative;
+            width: 100%;
+        }
+
+        .show-password-icon {
+            cursor: pointer;
+            user-select: none;
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        input {
+            padding: 10px;
+            margin-bottom: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            width: calc(100% - 30px);
+            box-sizing: border-box;
+        }
+
+        .feedback-container {
+            margin-top: 5px;
+            font-size: 14px;
+            color: #d9534f;
+        }
+
+        button {
+            background-color: rgb(177, 59, 59);
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: rgb(177, 59, 59);
+        }
+
+        .terms {
+            margin-top: 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        input[type="checkbox"] {
+            margin-right: 8px;
+            order: -1;
+        }
+
+        .terms-text {
+            flex: 1;
+        }
+
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1 style="margin-left: 20px;">NGO Pragati</h1>
+    </header>
+
+    <div class="container">
+        <h2>SIGN UP</h2>
+        <p><b><u>Step 3 out of 3:-</u></b></p>
+        <form action="/register" method="post">
+            <label for="Full Name">Full Name of Contact Person:</label>
+            <input type="text" id="full-name" name="full-name" required>
+
+            <label for="dob">Date of Birth:</label>
+            <input type="date" id="dob" name="dob" required>
+
+            <label for="gender">Gender:</label>
+            <select id="gender" name="gender" required>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+            </select>
+            <br>
+
+            <div class="password-container">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+                <div class="show-password-icon" onclick="togglePasswordVisibility('password')">&#x1F441;</div>
+                <div class="feedback-container" id="password-feedback"></div>
+            </div>
+
+            <div class="password-container">
+                <label for="confirm-password">Confirm Password:</label>
+                <input type="password" id="confirm-password" name="confirm-password" required>
+                <div class="show-password-icon" onclick="togglePasswordVisibility('confirm-password')">&#x1F441;</div>
+                <div class="feedback-container" id="confirm-password-feedback"></div>
+            </div>
+
+            <p>By clicking the sign up button, you agree to our Terms, Privacy Policy, and Cookies Policy.</p>
+
+            <button type="submit">Sign Up</button>
+        </form>
+
+        
+    <script>
+        function togglePasswordVisibility(inputId) {
+            var passwordInput = document.getElementById(inputId);
+
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+            } else {
+                passwordInput.type = 'password';
+            }
+        }
+        function validatePassword() {
+            var password = document.getElementById('password').value;
+            var passwordCriteria = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[&@$!])[A-Za-z\d&@$!]{8,}$/;
+            var feedbackContainer = document.getElementById('password-feedback');
+            if (!passwordCriteria.test(password)) {
+                feedbackContainer.textContent = 'Password must contain at least 8 characters, including both uppercase and lowercase letters, numbers, and at least one special character (&, @, $, or !).';
+            } else {
+                feedbackContainer.textContent = '';
+            }
+        }
+        function checkPasswordsMatch() {
+            var password = document.getElementById('password').value;
+            var confirmPassword = document.getElementById('confirm-password').value;
+            var feedbackContainer = document.getElementById('confirm-password-feedback');
+            if (password !== confirmPassword) {
+                feedbackContainer.textContent = 'Passwords do not match. Please make sure both passwords are the same.';
+            } else {
+                feedbackContainer.textContent = '';
+            }
+        }
+        document.getElementById('password').addEventListener('input', function () {
+            validatePassword();
+            // Clear the feedback when the password meets the criteria
+            if (document.getElementById('password-feedback').textContent === '') {
+                document.getElementById('password-feedback').textContent = '';
+            }
+        });
+        document.getElementById('confirm-password').addEventListener('input', checkPasswordsMatch);
+        document.querySelector('form').addEventListener('submit', function (event) {
+            event.preventDefault();
+            validatePassword();
+            checkPasswordsMatch();
+        });
+    </script>
+</body>
+
+</html>

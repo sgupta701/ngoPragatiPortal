@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NGO Pragati</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5d5b1;
+        }
+
+        .heading-bar {
+            background-color: rgb(177, 59, 59);
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .navbar {
+            background-color: #333;
+            color: #f5d5b1;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar a {
+            color: #fff;
+            margin: 0 15px;
+            text-decoration: none;
+        }
+
+        .search-bar {
+            padding: 10px;
+            width:70%;
+            box-sizing: border-box;
+            background-color: #f5d5b1;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .container {
+            max-width: 1500px;
+            margin: 20px auto;
+            display: flex;
+        }
+
+        .left-column, .center-column, .right-column {
+            box-sizing: border-box;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .right-column {
+            flex: 0.5;
+            padding: 0;
+            background-color: #f5d5b1;
+        }
+
+        .left-column {
+            flex: 0.5;
+            padding: 0;
+            background-color: #f5d5b1;
+        }
+
+        .center-column {
+            flex: 2;
+            padding: 20px;
+            background-color: #fff;
+        }
+
+        h2, h3 {
+            color: rgb(177, 59, 59);
+        }
+
+        .profile, .post, .friends, .timeline, .news, .suggestions {
+            padding: 20px;
+        }
+
+        .post-form {
+            margin-bottom: 20px;
+        }
+
+        .post-form textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+            resize: none;
+        }
+
+        .post-form button {
+            background-color: rgb(177, 59, 59);
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .post-form button:hover {
+            background-color: rgb(177, 59, 59);
+        }
+
+        .post-content, .comment {
+            border-top: 1px solid #ccc;
+            margin-top: 20px;
+            padding-top: 10px;
+        }
+
+        .comment textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+            resize: none;
+        }
+
+        .comment button {
+            background-color: rgb(177, 59, 59);
+            color: #fff;
+            padding: 8px 16px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .comment button:hover {
+            background-color: rgb(177, 59, 59);
+        }
+    </style>
+</head>
+<body>
+    <div class="heading-bar">
+        <h1>NGO Pragati</h1>
+    </div>
+
+    <div class="navbar">
+        <div>
+            <a href="#">Home</a>
+            <a href="#">Notifications</a>
+        </div>
+        <div class="search-bar">
+            <input type="text" placeholder="Search NGOs">
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="left-column">
+            <div class="profile">
+                <img src="img4.jpg" alt="IMAGE" width="180px" height="180px">
+                <h3>User Profile</h3>
+                <h3>NGOs Followed</h3>
+                <h3> Register your NGO</h3>
+                <h3> Settings and Privacy</h3>
+                <h3>Your Activity</h3>
+                <h3>Switch appearance</h3>
+                <h3>Report a Problem</h3>
+                <h3> Logout</h3>
+            </div>
+        </div>
+
+        <div class="center-column">
+            <div class="post-form">
+                <h2>Create a Post</h2>
+                <textarea placeholder="Add a post"></textarea>
+                <button>Post</button>
+            </div>
+
+            <div class="timeline">
+                <b><hr></b>
+                <h2>Timeline</h2>
+                <hr>
+                <div class="post">
+                    <p>Post from NGO 1</p>
+                    <div class="post-content">
+                        <p>Post content goes here...</p>
+                    </div>
+                    <div class="comment">
+                        <textarea placeholder="Write a comment"></textarea>
+                        <button>Comment</button>
+                    </div>
+                </div>
+
+                <div class="post">
+                    <p>Post from NGO 2</p>
+                    <div class="post-content">
+                        <p>Post content goes here...</p>
+                    </div>
+                    <div class="comment">
+                        <textarea placeholder="Write a comment"></textarea>
+                        <button>Comment</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="right-column">
+            <div class="news">
+                <h3>Latest News and Updates</h3>
+                <h3>Activities organized</h3>
+                <h3> Donate</h3>
+                <h3> Get Aid</h3>
+                <h3>Suggestions</h3>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

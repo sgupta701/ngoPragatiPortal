@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us - NGO Portal</title>
+  <style>
+    body {
+      
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: rgb(177, 59, 59);
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+
+    #welcome-strip {
+      background-color: #252424;
+      color: #fff;
+      padding: 10px 0;
+      overflow: hidden;
+    }
+
+    #welcome-text {
+      animation: moveLeftRight 30s infinite linear;
+    }
+
+    @keyframes moveLeftRight {
+      0% { transform: translateX(100%); }
+      100% { transform: translateX(-100%); }
+    }
+
+    #about-section {
+      position: relative;
+      padding: 20px;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      border: 2px solid #fff;
+      border-radius: 10px;
+      opacity: 0.8; 
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .background-image {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0.4; 
+      z-index: -1;
+    }
+
+    h1 {
+      color: #fff;
+      margin-bottom: 20px;
+    }
+
+    p {
+      color: #0c0c0c;
+      text-align: justify;
+      line-height: 1.6;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>NGO Pragati</h1>
+  </header>
+
+  <div id="welcome-strip">
+    <div id="welcome-text"><b><i>WELCOME TO THE NGO PORTAL -> YOUR PLATFORM FOR PURPOSEFUL PROGRESS !!</i></b></div>
+  </div>
+
+  <section id="about-section">
+    <div class="container">
+      <img src="img3.jpg" alt="Background Image" class="background-image">
+      <h2>ABOUT US</h2><b>
+        <hr><hr>
+      <p>Welcome to the NGO Portal, where collaboration meets compassion! Our mission is simple yet profound: to create a vibrant online community where NGOs of all stripes can come together, unite their efforts, and magnify their impact. Whether your passion lies in healthcare, education, environmental stewardship, or social justice, our platform is your canvas for change.</p>
+      <p>With a user-friendly sign-up process and intuitive interface, joining forces has never been easier. Showcase your organization's mission and projects with dynamic profiles, and connect with like-minded NGOs to explore synergies and opportunities for collaboration. Keep your finger on the pulse of the NGO world with real-time updates, engaging discussions, and inspiring success stories.</p>
+      <p>But that's not all! Dive into our treasure trove of resources, where you'll find invaluable documents, cutting-edge research, and proven best practices to fuel your initiatives. Participate in enlightening forums and webinars, where ideas converge, problems find solutions, and bonds grow stronger.</p>
+      <p>Here, inclusivity reigns supreme, as we welcome NGOs from every corner of the globe and every sphere of influence. Rest assured, your privacy and data security are our top priorities, ensuring a safe and trusted environment for all.</p>
+      <p>Join us in shaping a better tomorrow, one collaboration at a time. Together, let's turn dreams into deeds and aspirations into achievements. The NGO Portal: Where unity transforms vision into reality. Register today and be a part of something extraordinary!</p>
+    </b></div>
+  </section>
+
+</body>
+</html>

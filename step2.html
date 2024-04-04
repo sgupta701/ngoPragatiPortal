@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up Step 2</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #d1a981; 
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: rgb(177, 59, 59); 
+            color: #fff; 
+            padding: 10px 0; 
+            text-align: left; 
+            margin: 0; 
+            padding-left: 20px; 
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 20px auto; 
+            padding: 20px;
+            border-radius: 5px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            background-color: rgb(177, 59, 59); 
+            color: #fff; 
+            text-align: left;
+            margin-top: 0;
+            padding: 10px 0; 
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+        }
+        h2 {
+            background-color: rgb(177, 59, 59); 
+            color: #fff; 
+            text-align: center;
+            margin-top: 0;
+            padding: 10px 0; 
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        input[type="text"]:focus,
+        input[type="email"]:focus {
+            outline: none;
+            border-color: #6a9fe5;
+        }
+
+        input[type="submit"] {
+            background-color: rgb(177, 59, 59); 
+            color: #fff;
+            cursor: pointer;
+            border: none;
+            padding: 10px 0;
+            border-radius: 3px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #8B0000; 
+        }
+
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>NGO Pragati</h1>
+    </header>
+
+    <div class="container">
+        <h2>Sign Up</h2>
+        <p><b><u>Step 2 out of 3:-</u></b></p>
+        <form id="signup-form">
+            <label for="ngo-name">NGO Name:</label>
+            <input type="text" id="ngo-name" name="ngoName" required>
+            <label for="contact-phone">NGO PAN number:</label>
+            <input type="text" id="contact-phone" name="contactPhone" required>
+            <div id="pan-error" class="error"></div>
+            <input type="submit" value="Submit">
+        </form>
+        <p>Note:</p>
+        <ol>
+            <li>Enter NGO name exactly the same as that given on the PAN Card.</li>
+            <li>Only a valid PAN number will be accepted.</li>
+            <li>After completing Step-2, you will be directed to Step 3 to enter further details and credentials.</li>
+        </ol>
+    </div>
+
+    <script>
+        document.getElementById('signup-form').addEventListener('submit', function (event) {
+            var panInput = document.getElementById('contact-phone').value;
+            var panError = document.getElementById('pan-error');
+
+            // PAN number validation
+            if (!/^[a-zA-Z0-9]{10}$/.test(panInput)) {
+                panError.textContent = "Invalid PAN Number";
+                event.preventDefault();
+                return; // Exit the function if PAN number is invalid
+            } else {
+                panError.textContent = "";
+            }
+
+            // If all credentials are correct, show OTP dialogue
+            showOTPDialogue(event);
+        });
+
+        function showOTPDialogue(event) {
+            alert("You will now be directed to Step 3 out of 3 for sign up.");
+        }
+    </script>
+</body>
+
+</html>

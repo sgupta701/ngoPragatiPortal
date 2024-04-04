@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode';
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color, rgb(177, 59, 59)); 
+        }
+        
+        :root {
+            --bg-color: rgb(177, 59, 59); 
+            --text-color: #fff; 
+            --maroon-color: #109e89; 
+        }
+        
+        body.maroon-theme {
+            --bg-color: #109e89; 
+            --text-color: #fff; 
+        }
+
+        header {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            text-align: left;
+            padding: 1em;
+        }
+
+        .responsive-image {
+            margin-top: 1em;
+            max-width: 140%;
+            height: auto;
+            float: right;
+            opacity: 0.6;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 2.3em;
+            font-family:'copperplate';
+        }
+
+        p1 {
+            font-size: 2em;
+            color:#000000;
+            text-align: left;
+        }
+        nav {
+            background-color: #2f2d2d;
+            color: #fff;
+            padding: 0.5em;
+            text-align: right;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #fff;
+            padding: 0 15px;
+            font-weight: bold;
+        }
+
+        .main-content {
+            margin-top: -2em;
+            display: flex;
+            justify-content: space-between;
+            padding: 2em;
+        }
+
+        .left-column {
+            flex: 1;
+            background-color: #ffffff;
+            padding: 2em;
+            border-radius: 0px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .left-column h2 {
+            color: #333;
+            margin-bottom: 1em;
+        }
+
+        .left-column form {
+            margin-top: 1.5em;
+            position: relative;
+        }
+
+        .left-column label {
+            display: block;
+            margin-bottom: 0.5em;
+            color: #555;
+        }
+
+        .left-column input {
+            width: 40%;
+            padding: 8px;
+            margin-bottom: 1em;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .password-container {
+            position: absolute;
+            top: 50%;
+            right: 10px;
+            transform: translateY(-50%);
+            cursor: pointer;
+        }
+
+        .left-column button {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            padding: 10px 15px;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        .left-column a {
+            display: block;
+            margin-top: 0.5em;
+            color: #555;
+            text-decoration: underline;
+        }
+
+        .right-column {
+            flex: 1;
+            background-color: #fff;
+            border-radius: 0px;
+            overflow: hidden;
+        }
+
+        .right-column img {
+            width: 100%;
+            height: 90%;
+            border-radius: 8px;
+        }
+
+        .about {
+            text-align: right;
+            padding: 2em;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-top: -5em;
+            display: flex;
+            justify-content: space-between;
+        }
+        .about1 {
+            text-align: center;
+            padding: 2em;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-top: -8em;
+            display: flex;
+            justify-content: space-between;
+        }
+        .about-column {
+            flex: 1;
+            color: var(--text-color);
+            padding: 0em;
+        }
+
+        .register-box {
+            background-color: #2f2d2d;
+            color: var(--text-color);
+            padding: 0.02em;
+            border-radius: 5px;
+            margin-top: 5em;
+            margin-bottom: -9em;
+            max-width: 30%;
+            margin-left: 0 auto;
+            margin-right: auto;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .about-column h2 {
+            color: #333;
+            color: var(--text-color);
+            margin-bottom: 1em;
+        }
+
+        .about-column ul {
+            list-style: none;
+            color: var(--text-color);
+            padding: 0;
+        }
+
+        .about-column li {
+            margin-bottom: 0.5em;
+            color: var(--text-color);
+        }
+
+        .call-to-action {
+            position: relative;
+            text-align: left;
+            text-size-adjust: 60;
+            padding: 2em;
+            background-color: var(--bg-color);
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-top: -2em;
+            z-index: 1
+        }
+
+        .call-to-action p1 {
+            color: #000;
+            font-size: 2em;
+            margin-bottom: 1em;
+            font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode';
+        }
+
+        .call-to-action img {
+            width: 1450px;
+            height: 450px;
+            border-radius: 2px;
+            margin-top: -6em;
+            margin-bottom: -1em;
+            opacity: 0.8;
+            position: relative;
+            z-index: -1;
+        }
+
+        .call-to-action button {
+            background-color: #333;
+            color: #fff;
+            padding: 15px 20px;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+            size: 3em;
+            margin-top: 0em;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1em 0;
+        }
+
+        .footer-columns {
+            display: flex;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-column {
+            flex: 1;
+            margin: 0 1em;
+            text-align: left;
+        }
+
+        .footer-column ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 0.5em;
+        }
+
+        .footer-column ul li a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .footer-column ul li a:hover {
+            text-decoration: underline;
+        }
+
+        .transition-link {
+            transition: color 0.3s ease-in-out;
+        }
+
+        .transition-link:hover {
+            color: rgb(177, 59, 59); 
+        }
+
+        .transition-link1 {
+            transition: color 0.3s ease-in-out; 
+        }
+
+        .transition-link1:hover {
+            color: black; 
+        }
+
+        .about-column a {
+            color: var(--text-color); 
+        }
+
+        .about-column a:hover {
+            text-decoration: underline;
+        }
+
+        .about-column a.special-link {
+            color: var(--text-color); 
+        }
+        button {
+    cursor: pointer; 
+  }
+    </style>
+    <title>NGO Pragati</title>
+</head>
+<body>
+    <header>
+        <h1>NGO Pragati</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html" class="transition-link">Home</a></li>
+            <li><a href="aboutus.html" class="transition-link">About Us</a></li>
+            <li><a href="searchngo.html" class="transition-link">Search an NGO</a></li>
+            <li><a href="#" class="transition-link">Apply Grant</a></li>
+            <li><a href="#" class="transition-link">List of NGOs</a></li>
+            <li><a href="#" class="transition-link">Support</a></li>
+            <li><a href="#" class="transition-link">Log In</a></li>
+            <li><a href="step1.html" class="transition-link">Sign Up</a></li>
+            <li onclick="toggleTheme()" ><a href="#" class="transition-link"> Toggle theme</a></li>
+        </ul>
+    </nav>
+
+    <section class="main-content">
+        <div class="left-column">
+            <h1>BE A PART OF US...</h1>
+            <form id="loginForm"> 
+                <label for="loginType">Choose Login Type:</label>
+                <select id="loginType" name="loginType" onchange="toggleLoginFields()">
+                    <br><br>
+                    <option value="user">User Login ID</option>
+                    <option value="ngo">NGO PAN No.</option>
+                </select>
+                <br>
+                <br>
+                <div id="userLoginFields">
+                    <label for="username">User Login ID:</label>
+                    <input type="text" id="username" name="username" placeholder="Enter your user login ID" required>
+                </div>
+    
+                <div id="ngoLoginFields" style="display: none;">
+                    <label for="ngoPAN">NGO PAN No.:</label>
+                    <input type="text" id="ngoPAN" name="ngoPAN" pattern="[A-Z0-9]{10}" placeholder="Enter your NGO PAN number" title="Invalid NGO PAN number" required>
+                </div>
+    
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required class="show-password-icon" onclick="togglePasswordVisibility()">
+                <span id="password-icon">👁️</span>
+    
+                <br>
+                <button type="submit">Sign In</button>
+                <a href="#">Forgot Password?</a>
+                <a href="#">Create New Account</a>
+            </form>
+        </div>
+
+        <div class="right-column">
+                <img src="img1.jpg" alt="ngo image" class="responsive-image">
+        </div>
+    </section>
+    
+    <section class="about1">
+        <div class="about-column">
+            <div class="register-box">
+                <h3>REGISTER YOUR NGO</h3>
+            </div>
+        </div>
+    </section>
+
+    <section class="about">    
+        <div class="about-column">
+           <ul>
+                <h1> .</h1><br><br>
+              
+                <li><a href="#" class="transition-link1">Log in as user</a></li>
+                <li><a href="howto.html" class="transition-link1">Sign In/ Sign Up as NGO</a></li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="call-to-action">
+        <p1><B>TOGETHER,<br>
+            WE CAN MAKE A DIFFERENCE.. </B></p1>
+        <img src="img2.jpg" alt="Big Image">
+        
+        <H3> CONNECT WITH NGOs,  <br> COLLABORATE, COMMUNICATE & CONTRIBUTE<BR> DONATE BECAUSE YOUR CONTRIBUTION MATTERS.</H3>
+            <a href="step1.html" target="_blank"><button>Get Started</button></a>
+            <h2> Disclaimer</h2>
+        <h3>The NGO Portal lists the number of NGOs in India based on self-declared information. This does not imply that organizations
+           are endorsed or recommended by the portal. 
+           This portal, therefore, shall not be liable whatsoever for any damages incurred as a result of its use</h3>
+    </section>
+
+    <footer>
+        
+            <div class="footer-columns">
+                <div class="footer-column">
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="#">About the Portal</a></li>
+                        <li><a href="#">Help</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Link to us</a></li>
+                        <li><a href="#">FAQs</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <ul>
+                        <li><a href="#">Terms of Use</a></li>
+                        
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Copyright Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+        
+        
+        <p>&copy; 2023 NGO Portal. All rights reserved.</p>
+        </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            function validateLogin() {
+                var username = document.getElementById('username').value;
+                var password = document.getElementById('password').value;
+                if (username === 'admin' && password === 'password') {
+                    alert('Login successful!');
+                } else {
+                    alert('Wrong username or password. Please try again.');
+                }
+            }
+
+            function togglePasswordVisibility() {
+                var passwordInput = document.getElementById('password');
+                var passwordIcon = document.getElementById('password-icon');
+                if (passwordInput.type === 'password') {
+                    passwordInput.type = 'text';
+                    passwordIcon.textContent = '👁️';
+                } else {
+                    passwordInput.type = 'password';
+                    passwordIcon.textContent = '🔒';
+                }
+            }
+
+            document.getElementById('loginForm').addEventListener('submit', function (event) {
+                event.preventDefault();
+                validateLogin();
+            });
+        });
+        function toggleLoginFields() {
+        var loginType = document.getElementById('loginType').value;
+        var userLoginFields = document.getElementById('userLoginFields');
+        var ngoLoginFields = document.getElementById('ngoLoginFields');
+
+        if (loginType === 'user') {
+            userLoginFields.style.display = 'block';
+            ngoLoginFields.style.display = 'none';
+        } else if (loginType === 'ngo') {
+            userLoginFields.style.display = 'none';
+            ngoLoginFields.style.display = 'block';
+        }
+    }
+        function toggleTheme() {
+            document.body.classList.toggle('maroon-theme');
+        }
+    </script>
+</body>
+</html>
